@@ -23,15 +23,15 @@ event.preventDefault();
         data : $('#register-form').serialize(),
         dataType : "html",
         success : function(strMessage){
-          if(strMessage)
+          if(strMessage==1)
           {
-            location.href="login.php";
+            location.href="index.php";
             //alert(strMessage);
             //header("Location: home.php");
           }
           else{
                   //location.href="list.php?status=0";
-                  alert(strMessage);
+                  alert("Please enter valid details");
           }
       //  $('#msg').text(strMessage)
     }
@@ -76,7 +76,7 @@ event.preventDefault();
 				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
 			</div>
 			<div class="etc-login-form">
-				<p>already have an account? <a href="login.php">login here</a></p>
+				<p>already have an account? <a href="index.php">login here</a></p>
 			</div>
 		</form>
 	</div>
