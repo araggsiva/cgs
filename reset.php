@@ -1,7 +1,9 @@
 <?php
 
-//$email=$_GET['email'];
-$email="siva@ss.com";
+$email1=$_GET['email'];
+$email=trim($email1,"\'");
+//echo stripslashes($email);
+echo $email;
 ?>
 
 
@@ -30,15 +32,15 @@ event.preventDefault();
         data : $('#register-form').serialize(),
         dataType : "html",
         success : function(strMessage){
-          if(strMessage)
+          if(strMessage == 1)
           {
-            //location.href="login.php";
-            alert(strMessage);
+            location.href="index.php";
+            //alert(strMessage);
             //header("Location: home.php");
           }
           else{
                   //location.href="list.php?status=0";
-                  alert(strMessage);
+                  alert("password not updated");
           }
       //  $('#msg').text(strMessage)
     }
@@ -66,7 +68,7 @@ event.preventDefault();
 				
 					
 						
-						<input type="hidden" class="form-control" id="reg_email" name="re_email" value="<?php echo$email ?>" >
+						<input type="hidden" class="form-control" id="reg_email" name="re_email" value="<?php echo $email ?>" >
 				
 					<div class="form-group">
 						<label for="reg_password" class="sr-only">New Password</label>
