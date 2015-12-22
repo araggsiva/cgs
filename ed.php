@@ -4,25 +4,25 @@ include_once 'dbconnect.php';
 
 
 
-	$email = mysql_real_escape_string($_POST['lg_username']);
-	$upass = mysql_real_escape_string($_POST['lg_password']);
-	$res=mysql_query("SELECT * FROM users WHERE email='$email'");
-	$row=mysql_fetch_array($res);
+	$email = $_POST['lg_username'];
+	$upass = $_POST['lg_password'];
+
+
+	$res=mysql_query("SELECT * FROM users WHERE email='$email'and password='$upass'");
+	//$row=mysql_fetch_array($res);
 	
-	
-	if($row['password']==$upass)
+	$result=mysql_num_rows($res);
+	if($result==0)
 	{
 		
 		//$_SESSION['user'] = $row['user_id'];
 		//header("Location: home.php");
-		echo"ss";
+		echo 0;
 
 	}
 	else
 	{
-		?>
-        <script>alert('wrong details');</script>
-        <?php
+		echo 1;
 	}
 	
 
