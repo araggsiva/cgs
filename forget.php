@@ -19,18 +19,19 @@ event.preventDefault();
       $.ajax({
         url: "ed2.php",
         method : "post",
-        data : $('#login-form-1').serialize(),
+        data : {'fp_email':$('#fp_email').val()},
         dataType : "html",
         success : function(strMessage){
-          if(strMessage)
+          if(strMessage==1)
           {
-            //location.href="home.php";
-            alert(strMessage);
+          	alert(strMessage);
+          		location.href="index.php";
+           
             //header("Location: home.php");
           }
           else{
                   //location.href="list.php?status=0";
-                  alert("n");
+                  alert("email address not valid");
           }
       //  $('#msg').text(strMessage)
     }
@@ -48,7 +49,7 @@ event.preventDefault();
 	<div class="logo">forgot password</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
-		<form id="forgot-password-form" class="text-left">
+		<form id="forgot-password-form" method="POST" class="text-left">
 			<div class="etc-login-form">
 				<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
 			</div>
@@ -63,7 +64,7 @@ event.preventDefault();
 				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
 			</div>
 			<div class="etc-login-form">
-				<p>already have an account? <a href="login.php">login here</a></p>
+				<p>already have an account? <a href="index.php">login here</a></p>
 				<p>new user? <a href="register.php">create new account</a></p>
 			</div>
 		</form>
