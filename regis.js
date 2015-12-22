@@ -52,7 +52,7 @@ $(document).ready(function(){
       reg_password_confirm: {
         required: true,
         minlength: 5,
-        equalTo: "#register-form [name=reg_password]"
+        equalTo: "#reg_password"
       },
       reg_email: {
         required: true,
