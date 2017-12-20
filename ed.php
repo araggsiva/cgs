@@ -1,7 +1,7 @@
 <?php
 //session_start();
 include_once 'dbconnect.php';
-
+//i
 
 
 	$email = $_POST['lg_username'];
